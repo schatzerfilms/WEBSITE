@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { InstagramIcon, YoutubeIcon, VideoIcon } from 'lucide-react';
+import { InstagramIcon, Music2Icon, YoutubeIcon } from 'lucide-react';
 import { ShinyButton } from './ShinyButton';
 import { siteConfig } from '../config';
 
@@ -41,13 +41,13 @@ export function Footer() {
               <InstagramIcon className="w-8 h-8" />
             </a>
             <a
-              href={siteConfig.socials.vimeo}
+              href={siteConfig.socials.tiktok}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors duration-300"
-              aria-label="Vimeo"
+              aria-label="TikTok"
             >
-              <VideoIcon className="w-8 h-8" />
+              <Music2Icon className="w-8 h-8" />
             </a>
             <a
               href={siteConfig.socials.youtube}

@@ -18,8 +18,8 @@ export const siteConfig = {
 
     /** Social media links */
     socials: {
-        instagram: 'https://instagram.com',
-        youtube: 'https://youtube.com',
-        vimeo: 'https://vimeo.com',
+        instagram: 'https://www.instagram.com/schatzerfilms',
+        tiktok: 'https://www.tiktok.com/@schatzerfilms',
+        youtube: 'https://www.youtube.com/@schatzerfilms',
     },
 } as const;
