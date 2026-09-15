@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDownIcon } from 'lucide-react';
+import { YouTubeBackground } from './YouTubeBackground';
 
 export function Hero() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,25 +16,9 @@ export function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
-        src="/IMAGE.mov"
-        onLoadedMetadata={(e) => {
-          (e.target as HTMLVideoElement).currentTime = 2;
-        }}
-        onCanPlay={() => setVideoReady(true)}
-      />
+      <YouTubeBackground videoId="jTBb0Tfpq9c" />
 
-      {/* Black fade-in overlay */}
-      <div
-        className={`absolute inset-0 bg-black z-[5] transition-opacity duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none ${videoReady ? 'opacity-0' : 'opacity-100'
-          }`}
-      />
+      <div className="absolute inset-0 bg-black/20 z-[1] pointer-events-none" />
 
       {/* Dark Overlay – gradient for better depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/100" />
@@ -42,7 +26,7 @@ export function Hero() {
       {/* Centered Logo + Tagline */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
         <motion.img
-          src="/Zeichenflache_2_Kopie_2-2.png"
+          src="/images/Zeichenfla%CC%88che_2_Kopie_2.png"
           alt="SCHATZERFilms Logo"
           className="w-64 md:w-96 lg:w-[28rem] h-auto"
           initial={{ opacity: 0, scale: 0.9 }}

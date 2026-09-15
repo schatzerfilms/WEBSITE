@@ -62,7 +62,7 @@ export function Navbar() {
           className="block w-32 md:w-36 shrink-0 flex justify-center"
         >
           <img
-            src="/Zeichenflache_2_Kopie_2-2.png"
+            src="/images/Zeichenfla%CC%88che_2_Kopie_2.png"
             alt="SCHATZERFilms Logo"
             className="w-full h-auto"
           />

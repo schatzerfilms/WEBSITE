@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { siteConfig } from '../config';
+import { supabase } from '../lib/supabase';
 
 function ScrollReveal({
     children,
@@ -171,50 +171,26 @@ export function ContactPage() {
 
         setStatus('sending');
 
-        const emailjsConfigured =
-            siteConfig.emailjs.serviceId &&
-            siteConfig.emailjs.templateId &&
-            siteConfig.emailjs.publicKey;
+        try {
+            const { error: insertError } = await supabase
+                .from('contact_submissions')
+                .insert({
+                    first_name: formData.firstName,
+                    last_name: formData.lastName,
+                    email: formData.email,
+                    country_code: formData.countryCode,
+                    phone: formData.phone || null,
+                    message: formData.message,
+                });
 
-        if (emailjsConfigured) {
-            // Real email sending via EmailJS
-            try {
-                await emailjs.send(
-                    siteConfig.emailjs.serviceId,
-                    siteConfig.emailjs.templateId,
-                    {
-                        from_name: `${formData.firstName} ${formData.lastName}`,
-                        from_email: formData.email,
-                        phone: formData.phone ? `${formData.countryCode} ${formData.phone}` : '–',
-                        message: formData.message,
-                        to_email: siteConfig.contactEmail,
-                    },
-                    siteConfig.emailjs.publicKey
-                );
+            if (insertError) throw insertError;
 
-                // Record the successful send time to enforce the 1-hour cooldown
-                localStorage.setItem('schatzer_last_contact', Date.now().toString());
-
-                setStatus('sent');
-                setFormData({ firstName: '', lastName: '', email: '', countryCode: '+43', phone: '', message: '' });
-            } catch {
-                setStatus('error');
-            }
-        } else {
-            // Fallback: open mailto
-            const subject = encodeURIComponent(
-                `Contact from ${formData.firstName} ${formData.lastName}`
-            );
-            const phoneDisplay = formData.phone ? `${formData.countryCode} ${formData.phone}` : '–';
-            const body = encodeURIComponent(
-                `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${phoneDisplay}\n\n${formData.message}`
-            );
-            window.location.href = `mailto:${siteConfig.contactEmail}?subject=${subject}&body=${body}`;
-
-            // Record the successful send time for fallback as well
             localStorage.setItem('schatzer_last_contact', Date.now().toString());
 
             setStatus('sent');
+            setFormData({ firstName: '', lastName: '', email: '', countryCode: '+43', phone: '', message: '' });
+        } catch {
+            setStatus('error');
         }
 
         setTimeout(() => setStatus('idle'), 5000);
@@ -404,12 +380,7 @@ export function ContactPage() {
                             </motion.button>
                         </div>
 
-                        {/* Hint if EmailJS is not configured */}
-                        {!siteConfig.emailjs.serviceId && (
-                            <p className="text-center text-white/20 text-xs mt-6 font-mono">
-                                System Notice: EmailJS is not configured in config.ts. Fallback to Mailto protocol active.
-                            </p>
-                        )}
+
                     </form>
                 </ScrollReveal>
             </section>

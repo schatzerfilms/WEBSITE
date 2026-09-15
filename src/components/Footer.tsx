@@ -69,7 +69,7 @@ export function Footer() {
       {/* Oversized Dimmed Logo at the bottom */}
       <div className="w-full flex justify-center opacity-10 pointer-events-none translate-y-1/4">
         <img
-          src="/Zeichenflache_2_Kopie_2-2.png"
+          src="/images/Zeichenfla%CC%88che_2_Kopie_2.png"
           alt="SCHATZERFilms Background"
           className="w-full max-w-[120rem] h-auto object-contain"
         />

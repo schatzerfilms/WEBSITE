@@ -5,7 +5,7 @@
 
 export const siteConfig = {
     /** Contact email – used in the contact form & footer */
-    contactEmail: 'kilianflawless@gmail.com',
+    contactEmail: 'info@schatzerfilms.at',
 
     /**
      * EmailJS – reads from .env file (VITE_EMAILJS_*)

@@ -71,7 +71,7 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
                     >
                         {/* SCHATZER Logo */}
                         <motion.img
-                            src="/Zeichenflache_2_Kopie_2-2.png"
+                            src="/images/Zeichenfla%CC%88che_2_Kopie_2.png"
                             alt="Loading..."
                             className="w-32 md:w-40 h-auto"
                             initial={{ opacity: 0, scale: 0.92 }}
