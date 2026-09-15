@@ -1,0 +1,48 @@
+[
+    {
+        "id": "audi-rs5",
+        "title": "AUDI RS5",
+        "year": "2026",
+        "videoUrl": "/ROLLER DEMO_V1-0001.mov",
+        "ytUrl": "1_0f-MburQ8",
+        "image": "/RS5_Roller_1.1.1.png"
+    },
+    {
+        "id": "audi-rs3",
+        "title": "AUDI RS3",
+        "year": "2026",
+        "videoUrl": "/ROLLER DEMO_V1-0001.mov",
+        "ytUrl": "1_0f-MburQ8",
+        "image": "/RS3_LIMO-38.jpg"
+    },
+    {
+        "id": "erzbergrodeo hi",
+        "title": "ERZBERGRODEO",
+        "year": "2026",
+        "videoUrl": "/ROLLER DEMO_V1-0001.mov",
+        "bgYtUrl": "szGk3dkruMk",
+        "bgYtLoopStart": 83,
+        "bgYtLoopEnd": 96,
+        "ytUrl": "szGk3dkruMk",
+        "image": "/Bildschirmfoto_2026-03-12_um_22.14.27.png"
+    },
+    {
+        "id": "audi-rs4",
+        "title": "AUDI RS4",
+        "year": "2026",
+        "videoUrl": "/ROLLER DEMO_V1-0001.mov",
+        "bgYtUrl": "1_0f-MburQ8",
+        "bgYtLoopStart": 50,
+        "bgYtLoopEnd": 60,
+        "ytUrl": "1_0f-MburQ8",
+        "image": "/Bildschirmfoto_2026-03-12_um_22.15.14.png"
+    },
+    {
+        "id": "dji-avinox",
+        "title": "DJI AVINOX",
+        "year": "2026",
+        "videoUrl": "/ROLLER DEMO_V1-0001.mov",
+        "ytUrl": "1_0f-MburQ8",
+        "image": "/Bildschirmfoto_2026-03-12_um_22.16.05.png"
+    }
+]
